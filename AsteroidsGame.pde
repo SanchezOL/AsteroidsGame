@@ -19,17 +19,35 @@ public void draw()
   background(0);
   Bob.show();
   Bob.move();
-  
-  for (int a = 0; a < gameAsteroids.size(); a++){
+
+  for (int a = 0; a < gameAsteroids.size(); a++) {
     Asteroid i = gameAsteroids.get(a);
     i.show();
     i.move();
     if (dist(i.getX(), i.getY(), Bob.getX(), Bob.getY()) < 20)
-    gameAsteroids.remove(i);
+      gameAsteroids.remove(i);
   }
-    
+
   for (int i = 1; i < joe.length; i++)
   {
     joe[i].show();
   }
+}
+public void keyPressed () {
+  if (key == 'w') 
+  {
+    Bob.accelerate(.3);
+  } 
+  if (key == 's') 
+  {
+    Bob.accelerate(-.3);
+  } 
+  if (key == 'd') 
+  {
+    Bob.turn(10);
+  } 
+  if (key == 'a') 
+  {
+    Bob.turn(-10);
+  } 
 }
